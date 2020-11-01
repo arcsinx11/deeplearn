@@ -52,3 +52,5 @@ xml_to_txt(indir,outdir)
 #https://blog.csdn.net/Enjoy_endless/article/details/80819945
 #iFantasticMe
 #https://www.cnblogs.com/ifantastic/archive/2013/04/12/3017110.html
+#后续格式转换
+#https://github.com/spytensor/prepare_detection_dataset
