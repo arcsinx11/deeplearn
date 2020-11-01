@@ -6,23 +6,11 @@ import glob
 
 def xml_to_txt(indir,outdir):
     f_w = open(outdir, 'w')
-#    class_folders = [os.path.join(indir, label) \
-                     #for label in os.listdir(indir) \
-                     #if os.path.isdir(os.path.join(indir, label)) \
-                     #]
-    #for idx in list(range(len(class_folders))):
-        #xml_dir = class_folders[idx]
-        #print("xml_dir = ",xml_dir)
     os.chdir(indir)
     annotations = os.listdir('.')
     annotations = glob.glob(str(annotations)+'*.xml')
-    #print("annotations =",annotations )
-
+    
     for i, file in enumerate(annotations):
-        #file_save = file.split('.')[0]+'.txt'
-        #file_txt=os.path.join(outdir,file_save)
-        #f_w = open(file_txt,'w')
-
         # actual parsing
         in_file = open(file)
         tree=ET.parse(in_file)
@@ -32,7 +20,6 @@ def xml_to_txt(indir,outdir):
         for obj in root.iter('object'):
                 current = list()
                 name = obj.find('name').text
-
                 xmlbox = obj.find('bndbox')
                 xn = xmlbox.find('xmin').text
                 xx = xmlbox.find('xmax').text
